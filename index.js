@@ -1,7 +1,3 @@
-const ShlClient = require("./lib/shl_client");
-const ShlConnection = require("./lib/shl_connection");
+const shl = require("./lib/shl");
 
-module.exports = {
-    ShlClient: ShlClient,
-    ShlConnection: ShlConnection
-};
+module.exports = shl;
