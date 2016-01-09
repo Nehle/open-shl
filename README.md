@@ -76,11 +76,11 @@ Get a list of all teams
 **Returns**
  - `Promise<Fact[]>`: A list of basic facts for all teams in the SHL
 
-#### `client.teams(teamCode)`
+#### `client.team(teamCode)`
 Get details for a particular team.
 
 **Parameters**
-`teamCode: String`: is the three-character team code. i.e. "FHC" for Frölunda HC
+ - `teamCode: String`: is the three-character team code. i.e. "FHC" for Frölunda HC
 
 **Returns**
  - `Promise<Team>`: All information about the requested team. Includes team facts, player facts and more
