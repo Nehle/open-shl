@@ -26,40 +26,73 @@ const client = shl.connect(options);
 
 This client is built to mimic the API as documented on http://doc.openapi.shl.se
 
-All methods returns a promise that will resolve with a javascript object
+#### `client.season(season)`
+**Parameters** 
+ - `season: int`: The year the season started
 
-#### client.season(season) 
-`season`: An `integer` representing the year the season started
-Returns the `season` object
+**Returns**
+ - `season`: The `season` API object
 
-#### season.games()
+#### `season.games()`
+Fetches all games for the season
 
-Fetches all games for that season
+**Returns**
+ - `Promise<Game[]>`: Promise of all games for the season
 
-#### season.game(gameId) 
-`gameId`
-Fetch a single game with a given id
+#### `season.game(gameId)`
+Fetches a specific games
+
+**Parameters**
+ - `gameId: int`: Id for the game to fetch
+
+**Returns**
+ - `Promise<Game>`: The game with the specified id
 
 
-#### season.statistics.goalkeepers() 
-Get stats for goalkeepers for a given season
+#### `season.statistics.goalkeepers()`
+Gets the top goalkeepers for the season
 
+**Parameters**
+ - `gameId: int`:
+ 
+**Returns**
+ - `Promise<GoalkeeperStatistics[]>`: Statistics for all goalkeepers during that season 
 
-#### season.statistics.players() 
-Get statistics for all players
+#### `season.statistics.players()`
+Gets the top players for the season
 
-#### season.statistics.teams.standings() 
+**Returns**
+ - `Promise<PlayerStatistics[]>`: Statistics for top players during that season 
+
+#### `season.statistics.teams.standings()`
 Get current standings for that season
 
-#### client.teams()
+**Returns**
+ - `Promise<TeamStandings[]>`: List of all teams and their current standing
+
+#### `client.teams()`
 Get a list of all teams
 
-#### client.teams(teamCode) 
-`teamCode`: is the three-character team code. i.e. "FHC" for Frölunda HC
+**Returns**
+ - `Promise<Fact[]>`: A list of basic facts for all teams in the SHL
+
+#### `client.teams(teamCode)`
 Get details for a particular team.
+
+**Parameters**
+`teamCode: String`: is the three-character team code. i.e. "FHC" for Frölunda HC
+
+**Returns**
+ - `Promise<Team>`: All information about the requested team. Includes team facts, player facts and more
  
-#### client.videos() 
+#### `client.videos()`
 Get the ten latest videos
-#### client.articles() 
+
+**Returns**
+ - `Promise<Video[]>`: Ten latest videos
+ 
+#### `client.articles()`
 Get the latest articles 
-```
+
+**Returns**
+ - `Promise<Article[]>`: Ten latest articles
