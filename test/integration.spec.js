@@ -4,7 +4,8 @@ var ShlConnection   = require("../lib/shl_connection"),
     expect          = require("chai").expect,
     debug           = require("debug")("open-shl:integration-tests");
 
-describe("Shl Client Integration Tests", function () {
+// Ignored by default since they make unnecessary requests
+describe.skip("Shl Client Integration Tests", function () {
     this.timeout(10000);
     var connection,
     client;
