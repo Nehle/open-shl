@@ -1,4 +1,6 @@
 {
     "clientId": "YOUR_CLIENT_ID",
-    "clientSecret": "YOUR_CLIENT_SECRET"
+    "clientSecret": "YOUR_CLIENT_SECRET",
+    "userAgent": "YourSHlClient/1.0",
+    "autoConnect": true
 }
