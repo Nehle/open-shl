@@ -9,7 +9,7 @@ var sinon       = require("sinon"),
 var expect = chai.expect;
 chai.use(sinonChai);
 
-describe("ShlClient", function () {
+describe("ShlConnection", function () {
     var connection,
         sandbox;
         
