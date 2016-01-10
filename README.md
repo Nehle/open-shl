@@ -120,7 +120,7 @@ Get the latest articles
 **Returns**
  - `Promise<Article[]>`: Ten latest articles
  
- ## Examples
+## Examples
  
  ```javascript
  const shl = require("open-shl");
