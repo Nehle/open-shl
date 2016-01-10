@@ -1,16 +1,17 @@
 var ShlConnection   = require("../lib/shl_connection"),
     ShlClient       = require("../lib/shl_client"),
-    config          = require("./fixture/config.json"),
     expect          = require("chai").expect,
     debug           = require("debug")("open-shl:integration-tests");
 
 // Ignored by default since they make unnecessary requests
 describe.skip("Shl Client Integration Tests", function () {
     this.timeout(10000);
-    var connection,
-    client;
+    var config,
+        connection,
+        client;
 
     before(function () {
+        config = require("./fixture/config.json");
         connection = new ShlConnection(config);
         client     = new ShlClient(connection); 
     });
@@ -26,7 +27,7 @@ describe.skip("Shl Client Integration Tests", function () {
                     expect(connection.accessToken).to.exist;
                     expect(connection.expires).to.be.a("Date")
                 })
-                .finally(done);
+                .then(done, done);
             });
         });  
     });
@@ -39,7 +40,7 @@ describe.skip("Shl Client Integration Tests", function () {
                         expect(games).to.be.an("array").and
                             .to.have.length.above(0);
                     })
-                    .finally(done);
+                    .then(done, done);
             });
 
             it("fetches a single game", function (done) {
@@ -47,7 +48,7 @@ describe.skip("Shl Client Integration Tests", function () {
                     .then((game) => {
                         expect(game).to.be.an("object");
                     })
-                    .finally(done);
+                    .then(done, done);
             });
 
             it("fetches goalkeepers statistics", function (done) {
@@ -55,21 +56,21 @@ describe.skip("Shl Client Integration Tests", function () {
                     .then(stats => {
                         expect(stats).to.be.an("array");
                     })
-                    .finally(done);
+                    .then(done, done);
             });
             it("fetches players statistics", function (done) {
                 client.season(2015).statistics.players()
                     .then(stats => {
                         expect(stats).to.be.an("array");
                     })
-                    .finally(done);
+                    .then(done, done);
             });
             it("fetches current standings", function (done) {
                 client.season(2015).statistics.teams.standings()
                     .then(stats => {
                         expect(stats).to.be.an("array");
                     })
-                    .finally(done);
+                    .then(done, done);
             });
         });
         
@@ -79,7 +80,7 @@ describe.skip("Shl Client Integration Tests", function () {
                    expect(teams).to.be.an("array").and
                     .to.have.length.above(1); 
                 })
-                .finally(done);
+                .then(done, done);
             });
             
             it("fetches a single team when teamCode is supplied", function (done) {
@@ -87,7 +88,7 @@ describe.skip("Shl Client Integration Tests", function () {
                     expect(team).to.be.an("object").
                         and.to.have.property("facts");
                 })
-                .finally(done);
+                .then(done, done);
             });
         });
         
@@ -97,7 +98,7 @@ describe.skip("Shl Client Integration Tests", function () {
                     expect(videos).to.be.an("array").and
                         .to.have.length.above(1);
                 })
-                .finally(done);      
+                .then(done, done);      
             });
         });
         
@@ -107,7 +108,7 @@ describe.skip("Shl Client Integration Tests", function () {
                     expect(articles).to.be.an("array").and
                         .to.have.length.above(1);
                 })
-                .finally(done);      
+                .then(done, done);      
             });
         });
     });    
