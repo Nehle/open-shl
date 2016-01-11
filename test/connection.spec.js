@@ -49,7 +49,6 @@ describe("ShlConnection", function () {
         
         it("sets correct accessToken", function (done) {
            connection.connect().then(() => {
-                console.log(connection);
                 expect(connection.accessToken).to.equal("token");
             })
             .finally(done);    
