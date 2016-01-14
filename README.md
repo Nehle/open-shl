@@ -137,3 +137,9 @@ Get the latest articles
         console.log("Between FBK and FHC, ", players[0].info.first_name, players[0].info.last_name, ", hits the most")
     });
  ```
+ 
+## License ##
+ 
+Copyright © 2016, Jakob Nilsson-Ehle. 
+ 
+Published under [ISC license](https://opensource.org/licenses/ISC). See [LICENSE.md](LICENSE.md)
