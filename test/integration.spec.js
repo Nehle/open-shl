@@ -19,7 +19,14 @@ describe.skip("Shl Client Integration Tests", function () {
     after(function () {
         connection = null;
         client = null;
-    })
+    });
+    
+    it("has all the setup data", function () {
+        expect(config).to.exist
+        expect(config).to.have.property("clientId").with.length.above(0); 
+        expect(config).to.have.property("clientSecret").with.length.above(0); 
+    });
+    
     describe("ShlConnection", function() {
         describe("#connect", function () {
             it("fetches an access token", function (done) {

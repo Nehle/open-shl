@@ -35,7 +35,7 @@ describe("ShlConnection", function () {
             connection.connect().then(() => {
                 expect(connection._request).to.have.been.calledOnce;
             })
-            .finally(done);    
+            .then(done, done);    
         });
         
         it("sends `client_id` and `client_secret`", function (done) {
@@ -44,14 +44,14 @@ describe("ShlConnection", function () {
                 expect(args.form).to.contain.property("client_id","id");
                 expect(args.form).to.contain.property("client_secret","secret");
             })
-            .finally(done);    
+            .then(done, done);    
         });
         
         it("sets correct accessToken", function (done) {
            connection.connect().then(() => {
                 expect(connection.accessToken).to.equal("token");
             })
-            .finally(done);    
+            .then(done, done);    
         });
     });
     
