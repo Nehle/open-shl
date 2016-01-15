@@ -1,5 +1,7 @@
 #open-shl
 
+[![Build Status](https://travis-ci.org/Nehle/open-shl.svg?branch=master)](https://travis-ci.org/Nehle/open-shl)
+
 Node.js client for the open SHL (Swedish Hockey League) API. Developed with and for node.js 5+
 
 ## Install
